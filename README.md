@@ -18,11 +18,19 @@ IV. GRANT ALL ON db_name.* TO 'name-user'@'%';
 
 
 and then change .env 
+
 ...
+
 DB_CONNECTION=mysql
+
 DB_HOST=private-XXXXX.b.db.ondigitalocean.com
+
 DB_PORT=MANAGED_MYSQL_PORT
+
 DB_DATABASE=MANAGED_MYSQL_DB
+
 DB_USERNAME=MANAGED_MYSQL_USER
+
 DB_PASSWORD=MANAGED_MYSQL_PASSWORD
+
 ...
