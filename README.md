@@ -69,6 +69,6 @@ https://stackoverflow.com/questions/31847054/how-to-use-multiple-databases-in-la
 
 
 ```ruby
-[2022-12-13 17:16:40] production.DEBUG: Guest -  Requested https://bnftopup.com/topup/payment_status/e_wallet/h1XbUkvgngF-Eyk-0lOqZw==(POST) ::: {"ip":"162.158.163.23","device":" Unknown","user_agent":null,"platform":" Unknown","data":"{\"version\":\"6.2\",\"request_timestamp\":\"2022-12-13 17:15:17\",\"merchant_id\":\"104104000000038\",\"order_id\":\"00000000004379131222\",\"invoice_no\":\"63985794a84b34379\",\"currency\":\"104\",\"amount\":\"000003090000\",\"transaction_ref\":\"212804756\",\"approval_code\":\"198769\",\"eci\":\"xx\",\"transaction_datetime\":\"2022-12-13 17:16:40\",\"payment_channel\":\"001\",\"payment_status\":\"000\",\"channel_response_code\":\"00\",\"channel_response_desc\":\"Approved\",\"masked_pan\":null,\"stored_card_unique_id\":null,\"backend_invoice\":\"167090642\",\"paid_channel\":null,\"paid_agent\":null,\"user_defined_1\":\"h1XbUkvgngF-Eyk-0lOqZw==\",\"user_defined_2\":\"topup\",\"user_defined_3\":null,\"user_defined_4\":null,\"user_defined_5\":null,\"browser_info\":null,\"hash_value\":\"238B2A106C76DA2EABAAA09F8C4622C601C3204C\"}"} 
+hello
 ```
 
