@@ -33,8 +33,6 @@ DB_USERNAME=MANAGED_MYSQL_USER
 
 DB_PASSWORD=MANAGED_MYSQL_PASSWORD
 
-<sub> hello </sub>
-
 ...
 
 
@@ -70,4 +68,9 @@ https://laravel.com/docs/5.2/database
 https://stackoverflow.com/questions/31847054/how-to-use-multiple-databases-in-laravel
 
 
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
 
