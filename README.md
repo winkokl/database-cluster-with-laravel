@@ -7,7 +7,7 @@ https://docs.digitalocean.com/products/databases/mysql/how-to/connect/#connectio
 
 Creating mysql user and Database in server
 
-I. mysql -u db_name -p -h host -P db_port  (or) mysql -u doadmin -p<your_password> -h mysql-test-do-user-4915853-0.db.ondigitalocean.com -P 25060 -D defaultdb --ssl-ca=path/to/your-ssl.crt
+I. mysql -u db_user_name -p -h host -P db_port  (or) mysql -u doadmin -p<your_password> -h mysql-test-do-user-4915853-0.db.ondigitalocean.com -P 25060 -D defaultdb --ssl-ca=path/to/your-ssl.crt
 
 
 II. create database;
@@ -34,7 +34,63 @@ DB_USERNAME=MANAGED_MYSQL_USER
 DB_PASSWORD=MANAGED_MYSQL_PASSWORD
 
 ...
+3. Add new database cluster setting in laravel 
+	
+	a. In .env file
 
+		DB_CONNECTION=mysql
+		DB_HOST=127.0.0.1 
+		DB_PORT=3306 
+		DB_DATABASE=database1 
+		DB_USERNAME=root 
+		DB_PASSWORD=secret 
+
+		DB_CONNECTION_SECOND=mysql 
+		DB_HOST_SECOND=testing-database-do-user-9898878-0.b.db.ondigitalocean.com
+		DB_PORT_SECOND=28465 
+		DB_DATABASE_SECOND=bnfexpress 
+		DB_USERNAME_SECOND=bnfexpress-user
+		DB_PASSWORD_SECOND=secret
+
+	b. In config/database.php
+
+	 	'mysql' => [
+		    'driver'    => env('DB_CONNECTION'),
+		    'host'      => env('DB_HOST'),
+		    'port'      => env('DB_PORT'),
+		    'database'  => env('DB_DATABASE'),
+		    'username'  => env('DB_USERNAME'),
+		    'password'  => env('DB_PASSWORD'),
+		],
+
+		'mysql2' => [
+		    'driver'    => env('DB_CONNECTION_SECOND'),
+		    'host'      => env('DB_HOST_SECOND'),
+		    'port'      => env('DB_PORT_SECOND'),
+		    'database'  => env('DB_DATABASE_SECOND'),
+		    'username'  => env('DB_USERNAME_SECOND'),
+		    'password'  => env('DB_PASSWORD_SECOND'),
+		],
+
+	c. Schema
+		To specify which connection to use, simply run the connection() method
+
+			Schema::connection('mysql2')->create('some_table', function($table)
+			{
+			    $table->increments('id'):
+			});
+
+	d. Query Builder
+
+		$users = DB::connection('mysql2')->select(...);
+
+	e. Eloquent
+
+		Set the $connection variable in your model
+
+		class SomeModel extends Eloquent {
+		    protected $connection = 'mysql2';
+		}
 
 Digital Ocean not allowed without primary key 
 
@@ -69,6 +125,16 @@ https://stackoverflow.com/questions/31847054/how-to-use-multiple-databases-in-la
 
 
 ```ruby
-hello
+DB_CONNECTION=mysql
+
+DB_HOST=private-XXXXX.b.db.ondigitalocean.com
+
+DB_PORT=MANAGED_MYSQL_PORT
+
+DB_DATABASE=MANAGED_MYSQL_DB
+
+DB_USERNAME=MANAGED_MYSQL_USER
+
+DB_PASSWORD=MANAGED_MYSQL_PASSWORD
 ```
 
